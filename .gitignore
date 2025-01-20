@@ -4,3 +4,5 @@ install/
 install/*
 log/
 log/*
+.vscode/
+.vscode/*
