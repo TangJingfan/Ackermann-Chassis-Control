@@ -3,7 +3,7 @@
 // global variable
 int angle = 0;
 Servo ackermann_chassis;
-string command;
+String command;
 
 void setup() {
   ackermann_chassis.attach(10);
