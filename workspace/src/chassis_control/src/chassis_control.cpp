@@ -8,7 +8,7 @@
 class chassis_control : public rclcpp::Node {
 public:
   // constructor
-  chassis_control() : Node("chassis_control_node") {
+  chassis_control() : Node("chassis_control_node"), angle_(0), increment_(10) {
     // set port and baudrate
     // values are pre-set in the program
     this->declare_parameter<std::string>("port", "/dev/arduino");
@@ -49,15 +49,21 @@ private:
   serial::Serial serial_;
   std::string port_;
   int baudrate_;
+  int angle_;
+  int increment_;
   rclcpp::TimerBase::SharedPtr timer_;
 
   void send_to_serial() {
-    // message format: <linear velocity, angular velocity>
-    std::string data = "<1,1>";
+    std::string data = "<" + std::to_string(angle_) + ">";
 
     if (serial_.isOpen()) {
-      serial_.write(data); // send info
+      serial_.write(data);
       RCLCPP_INFO(this->get_logger(), "Sent to Arduino: %s", data.c_str());
+
+      angle_ += increment_;
+      if (angle_ >= 180 || angle_ <= 0) {
+        increment_ = -increment_; // reverse
+      }
     } else {
       RCLCPP_ERROR(this->get_logger(), "Serial port is not open!");
     }
