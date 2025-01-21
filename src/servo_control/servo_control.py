@@ -67,7 +67,7 @@ if __name__ == "__main__":
         # Continuously set the servo angle in a loop
         while True:
             servo.set_angle()
-            time.sleep(0.1)  # Add a small delay to avoid flooding the serial port
+            time.sleep(2)  # Add a small delay to avoid flooding the serial port
     except Exception as e:
         print(f"An error occurred: {e}")
     finally:
