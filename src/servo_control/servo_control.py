@@ -3,14 +3,14 @@ import time
 
 
 class ServoControl:
-    def __init__(self, port, baudrate, timeout, angle=40, increment=1):
+    def __init__(self, port, baudrate, timeout, angle=40, increment=10):
         """
         Constructor for the class.
         :param port: Serial port, e.g., '/dev/arduino'
         :param baudrate: Baud rate, e.g., 115200
         :param timeout: Timeout for serial communication
         :param angle: Initial angle of the servo (default is 40)
-        :param increment: Angle increment for servo rotation (default is 1)
+        :param increment: Angle increment for servo rotation (default is 10)
         """
         try:
             self.serial_port = serial.Serial(port, baudrate, timeout=timeout)
