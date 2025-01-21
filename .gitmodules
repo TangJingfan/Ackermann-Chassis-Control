@@ -1,3 +1,0 @@
-[submodule "workspace/src/ros2-serial"]
-	path = workspace/src/ros2-serial
-	url = git@github.com:TangJingfan/ros2-serial.git
