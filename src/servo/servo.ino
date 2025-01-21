@@ -1,4 +1,4 @@
-#include <Servo.h>
+#include <ESP32Servo.h>
 
 // global variable
 int angle = 0;
