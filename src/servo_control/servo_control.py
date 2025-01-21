@@ -61,7 +61,7 @@ class ServoControl:
 
 if __name__ == "__main__":
     # Create a servo control object
-    servo = ServoControl("/dev/arduino", 115200, 1)
+    servo = ServoControl("/dev/ttyUSB0", 115200, 1)
 
     try:
         # Continuously set the servo angle in a loop
