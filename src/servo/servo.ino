@@ -25,5 +25,5 @@ void loop() {
     }
   }
   command = "";
-  delay(15);
+  delay(2000);
 }
