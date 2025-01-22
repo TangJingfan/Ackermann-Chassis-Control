@@ -8,7 +8,8 @@ def signal_handler(signal, frame):
     sys.exit(0)
 
 signal_pin = 33
-angle = 60
+min_angle=60
+max_angle=120
 increment = 10
 
 GPIO.setwarnings(False)
@@ -20,11 +21,12 @@ def main():
 
     print("Start servo")
     try:
+        angle = min_angle
         while True:
             duty_cycle = 5 + (angle / 180) * 5  
             p.ChangeDutyCycle(duty_cycle)
             time.sleep(1)
-            if 60 > angle+increment or 120< angle+increment:
+            if min_angle > angle+increment or max_angle< angle+increment:
                 increment = -increment
             angle = angle + increment
     except KeyboardInterrupt:
