@@ -10,7 +10,6 @@ def signal_handler(signal, frame):
 signal_pin = 33
 min_angle=60
 max_angle=120
-increment = 10
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
@@ -22,6 +21,7 @@ def main():
     print("Start servo")
     try:
         angle = min_angle
+        increment = 10
         while True:
             duty_cycle = 5 + (angle / 180) * 5  
             p.ChangeDutyCycle(duty_cycle)
