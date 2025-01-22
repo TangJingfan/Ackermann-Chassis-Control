@@ -25,6 +25,7 @@ def main():
         while True:
             duty_cycle = 5 + (angle / 180) * 5  
             p.ChangeDutyCycle(duty_cycle)
+            print(f"Servo is at {angle}.")
             time.sleep(1)
             if min_angle > angle+increment or max_angle< angle+increment:
                 increment = -increment
