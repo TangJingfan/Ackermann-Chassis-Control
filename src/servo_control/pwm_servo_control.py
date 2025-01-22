@@ -13,6 +13,7 @@ max_angle=120
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
+GPIO.setup(signal_pin, GPIO.OUT)
 
 def main():
     p = GPIO.PWM(signal_pin, 50)
