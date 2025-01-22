@@ -12,10 +12,9 @@ min_angle=60
 max_angle=120
 
 GPIO.setwarnings(False)
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(signal_pin, GPIO.OUT)
 
 def main():
+    GPIO.setmode(GPIO.BOARD)
     p = GPIO.PWM(signal_pin, 50)
     p.start(7.5)
 
@@ -26,6 +25,7 @@ def main():
         while True:
             duty_cycle = 5 + (angle / 180) * 5  
             p.ChangeDutyCycle(duty_cycle)
+            p.start(duty_cycle)
             print(f"Servo is at {angle}.")
             time.sleep(1)
             if min_angle > angle+increment or max_angle< angle+increment:
